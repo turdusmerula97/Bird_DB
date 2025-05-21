@@ -8,26 +8,10 @@ This is a simple Flask web application that manages a database of birds. It uses
 - Search for birds by name
 - Sort the list by name or average weight
 
-## Database Structure
-
-The app uses an SQLite database with two tables in a 1-to-1 relationship:
-
-- **birds**:
-  - `id` (INTEGER PRIMARY KEY)
-  - `name` (TEXT)
-  
-- **bird_descriptions**:
-  - `id` (INTEGER PRIMARY KEY)
-  - `bird_id` (INTEGER, FOREIGN KEY to birds.id)
-  - `description` (TEXT)
-  - `average_weight` (REAL)
-
 ## Project Structure
 ![Image](https://github.com/user-attachments/assets/1cbd54da-a18c-4ce4-8cb7-a6b11cfeb1b0)
 
-## Getting Started
-
-Follow the steps below to run the app on your local machine.
+## Installation steps
 
 ### 1. Install Python
 
@@ -39,7 +23,7 @@ Check installation:
 python --version
 ```
 
-### 2. Create a Virtual Environment (Recommended)
+### 2. Create a Virtual Environment
 In the project folder:
 
 ```bash
@@ -62,22 +46,17 @@ pip install -r requirements.txt
 ```
 
 ### 4. Run the App
-Still in your project folder, run:
+Run:
 
 ```bash
 python app.py
 ```
 
-Then open your browser and visit:
+Open your browser and visit:
 
 ```cpp
 http://127.0.0.1:5000/
 ```
-
-###  Notes
-If you change the database structure (e.g., add columns), you may need to delete database.db and recreate it with a script or manually.
-
-Make sure app.py, the templates/ folder, and the static/ folder are in the same directory.
 
 ## Screenshots
 
