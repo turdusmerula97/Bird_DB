@@ -1,4 +1,4 @@
-# 🐦 Bird Database Web App
+# Bird Database Web App
 
 This is a simple Flask web application that manages a database of birds. It uses SQLite to store bird information and allows users to:
 
@@ -8,7 +8,7 @@ This is a simple Flask web application that manages a database of birds. It uses
 - Search for birds by name
 - Sort the list by name or average weight
 
-## 🗃️ Database Structure
+## Database Structure
 
 The app uses an SQLite database with two tables in a 1-to-1 relationship:
 
@@ -22,14 +22,14 @@ The app uses an SQLite database with two tables in a 1-to-1 relationship:
   - `description` (TEXT)
   - `average_weight` (REAL)
 
-## 📁 Project Structure
+## Project Structure
 ![Image](https://github.com/user-attachments/assets/1cbd54da-a18c-4ce4-8cb7-a6b11cfeb1b0)
 
-## ✅ Getting Started
+## Getting Started
 
 Follow the steps below to run the app on your local machine.
 
-### 1. 📦 Install Python
+### 1. Install Python
 
 Make sure Python 3 is installed. You can download it from [python.org](https://www.python.org/downloads/).
 
@@ -39,7 +39,7 @@ Check installation:
 python --version
 ```
 
-### 2. 🧪 Create a Virtual Environment (Recommended)
+### 2. Create a Virtual Environment (Recommended)
 In the project folder:
 
 ```bash
@@ -54,14 +54,14 @@ On Windows:
 .venv\Scripts\activate
 ```
 
-### 3. 📥 Install Required Packages
+### 3. Install Required Packages
 With the virtual environment activated:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 4. 🚀 Run the App
+### 4. Run the App
 Still in your project folder, run:
 
 ```bash
@@ -74,12 +74,12 @@ Then open your browser and visit:
 http://127.0.0.1:5000/
 ```
 
-### 🔄 Notes
+###  Notes
 If you change the database structure (e.g., add columns), you may need to delete database.db and recreate it with a script or manually.
 
 Make sure app.py, the templates/ folder, and the static/ folder are in the same directory.
 
-## 🖼️ Screenshots
+## Screenshots
 
 Empty database:
 
