@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Birds Database</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+    <style>
+      /* Optional: simple style for active sort column */
+      th a.active {
+          text-decoration: underline;
+          font-weight: bold;
+          color: #2e7d32; /* green highlight */
+      }
+    </style>
+</head>
+<body>
+    <h1>Birds Database</h1>
+
+    <!-- Search form -->
+    <form method="get" action="{{ url_for('index') }}">
+        <input type="text" name="q" placeholder="Search by bird name" value="{{ request.args.get('q', '') }}" />
+        <button type="submit">Search</button>
+    </form>
+
+    <!-- Add new bird form -->
+    <h2>Add New Bird</h2>
+    <form method="post" action="{{ url_for('add') }}">
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" required />
+
+        <label for="avg_weight">Average Weight (grams):</label>
+        <input type="number" step="0.1" name="avg_weight" id="avg_weight" required />
+
+        <label for="description">Description:</label>
+        <textarea name="description" id="description"></textarea>
+
+        <button type="submit">Add Bird</button>
+    </form>
+
+    <!-- Bird list -->
+    <h2>Birds List</h2>
+    <table>
+        <thead>
+            <tr>
+                {% set current_sort = request.args.get('sort', 'name') %}
+                <th>
+                  <a href="{{ url_for('index', sort='name', q=request.args.get('q', '')) }}"
+                     class="{{ 'active' if current_sort == 'name' else '' }}">Name</a>
+                </th>
+                <th>
+                  <a href="{{ url_for('index', sort='avg_weight', q=request.args.get('q', '')) }}"
+                     class="{{ 'active' if current_sort == 'avg_weight' else '' }}">Average Weight (g)</a>
+                </th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for bird in birds %}
+            <tr>
+                <td>{{ bird['name'] }}</td>
+                <td>{{ bird['avg_weight'] }}</td>
+                <td>{{ bird['description'] or '' }}</td>
+                <td>
+                    <a href="{{ url_for('edit', id=bird['id']) }}">Edit</a> |
+                    <a href="{{ url_for('delete', id=bird['id']) }}" onclick="return confirm('Are you sure?');">Delete</a>
+                </td>
+            </tr>
+            {% else %}
+            <tr><td colspan="4">No birds found.</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
+

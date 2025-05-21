@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Edit Bird</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+</head>
+<body>
+    <h1>Edit Bird</h1>
+
+    <form method="post" action="{{ url_for('edit', id=bird['id']) }}">
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" value="{{ bird['name'] }}" required />
+
+        <label for="avg_weight">Average Weight (grams):</label>
+        <input type="number" step="0.1" name="avg_weight" id="avg_weight" value="{{ bird['avg_weight'] }}" required />
+
+        <label for="description">Description:</label>
+        <textarea name="description" id="description">{{ bird['description'] or '' }}</textarea>
+
+        <button type="submit">Save Changes</button>
+        <a href="{{ url_for('index') }}">Cancel</a>
+    </form>
+</body>
+</html>
